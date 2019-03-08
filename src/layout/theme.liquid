@@ -11,6 +11,8 @@
 
   <meta name="description" content="">
 
+  {% include 'font-faces' %}
+  {% include 'css-variables' %}
   {% include 'style-tags', layout: 'theme' %}
   {% include 'script-tags', layout: 'theme' %}
 
@@ -18,6 +20,12 @@
 </head>
 
 <body>
-  {{ content_for_layout }}
+  {% section 'header' %}
+
+  <main class="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
 </body>
 </html>
