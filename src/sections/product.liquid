@@ -1,0 +1,21 @@
+<div class="product__images">
+  {% for image in product.images %}
+    <img class="product__image" src="{{ image.src | img_url: '200x200', crop: 'center' }}" alt="{{ image.alt }}">
+  {% endfor %}
+</div>
+
+<div class="product__info">
+  <h1>{{ product.title }}</h1>
+  <span>{{ product.price }}</span>
+  <p>{{ product.description }}</p>
+  <form action="/cart/add" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}">
+    <button class="button">Add To Bag</button>
+  </form>
+</div>
+{% schema %}
+  {
+    "name": "Product",
+    "class": "product"
+  }
+{% endschema %}

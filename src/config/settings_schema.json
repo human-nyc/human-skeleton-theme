@@ -1,0 +1,36 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Human Skeleton theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Human NYC",
+    "theme_documentation_url": "https://github.com/Shopify/skeleton-theme",
+    "theme_support_url": "https://github.com/Shopify/skeleton-theme/issues"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_body",
+        "label": "Body Text",
+        "default": "#000"
+      }
+    ]
+  },
+  {
+    "name": "Page Dimensions",
+    "settings": [
+      {
+        "type": "range",
+        "id": "site_maxwidth",
+        "min": 1024,
+        "max": 1920,
+        "step": 16,
+        "unit": "px",
+        "label": "Max-width",
+        "default": 1600
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+<div class="header__inner">
+  {% for link in linklists[section.settings.link_list].links %}
+    <a
+      class="{% if link.active or link.child_active %} active{% endif %}"
+      href="{{ link.url }}"
+    >
+      {{ link.title }}
+    </a>
+
+    {% if link.levels > 0 %}
+      {% for childlink in link.links %}
+        <a
+          class="{% if link.active or link.child_active %} active{% endif %}"
+          href="{{ childlink.url }}"
+        >
+          {{ childlink.title }}
+        </a>
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Header",
+    "class": "header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "link_list",
+        "label": "Main Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}

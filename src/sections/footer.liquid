@@ -1,0 +1,37 @@
+<div class="footer__inner">
+  <nav class="nav">
+    {% for link in linklists[section.settings.menu].links %}
+      <div class="link-group">
+        <a
+          class="{% if link.active or link.child_active %} active{% endif %}"
+          href="{{ link.url }}"
+        >
+          {{ link.title }}
+        </a>
+
+        {% if link.levels > 0 %}
+          <div class="link-links">
+            {% for link in link.links %}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </nav>
+</div>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "class": "footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}
